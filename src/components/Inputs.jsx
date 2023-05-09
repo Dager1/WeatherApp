@@ -20,11 +20,11 @@ function Inputs() {
       </div>
       <div className="flex flex-row w-1/4 items-center justify-center">
         <button name="metric" className="text-xl text-white font-light">
-          *C
+          °C
         </button>
         <p className="text-xl text-white mx-1">|</p>
         <button name="imperial" className="text-xl text-white font-light">
-          *F
+          °F
         </button>
       </div>
     </div>
