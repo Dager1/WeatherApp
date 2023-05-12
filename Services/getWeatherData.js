@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -6,6 +5,7 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
+  // console.log(searchParams);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
 
   return axios
@@ -49,11 +49,16 @@ const formattedCurrentWeather = (data) => {
   };
 };
 
-const getFormattedWeatherData = async ({ searchParams }) => {
+const getFormattedWeatherData = async (searchParams) => {
   const formattedWeather = await getWeatherData("weather", searchParams).then(
     formattedCurrentWeather
   );
   return formattedWeather;
 };
-
+// const getFormattedWeatherData = (searchParams) => {
+//   console.log(searchParams);
+//   getWeatherData("weather", searchParams).then(
+//     (formattedCurrentWeather) => formattedCurrentWeather
+//   );
+// };
 export default getFormattedWeatherData;
